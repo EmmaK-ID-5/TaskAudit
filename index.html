@@ -109,9 +109,9 @@
 
     /* ===== MAIN CONTAINER ===== */
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-lg);
+      max-width: 100%;
+      margin: 0;
+      padding: var(--space-lg);
     }
 
     /* ===== FORM SECTION ===== */
@@ -523,19 +523,11 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .container {
-        padding: 0 var(--space-md);
+        padding: var(--space-md);
       }
 
       .form-section {
         padding: var(--space-lg);
-      }
-
-      .header {
-        padding: var(--space-lg) var(--space-md);
-      }
-
-      .header h1 {
-        font-size: 1.5rem;
       }
 
       .results-header {
@@ -551,19 +543,34 @@
         font-size: 0.85rem;
       }
     }
+
+    /* ===== IFRAME LANDSCAPE OPTIMIZATION ===== */
+    @media (min-width: 1024px) and (orientation: landscape) {
+      body {
+        padding: 0;
+      }
+
+      .container {
+        padding: var(--space-md) var(--space-lg);
+      }
+
+      .form-section {
+        padding: var(--space-lg);
+      }
+
+      .sliders-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+      }
+
+      .recommendations {
+        padding: var(--space-lg);
+        padding-left: var(--space-xl);
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
-  <div class="header">
-    <div class="header-container">
-      <div class="badge">Segment 2.3</div>
-      <h1>Your <span>Automation</span> Candidates</h1>
-      <div class="yellow-line"></div>
-      <p>Identify and rank the tasks in your role that are best suited for AI automation</p>
-    </div>
-  </div>
-
   <!-- ===== MAIN CONTENT ===== -->
   <div class="container">
     <!-- FORM SECTION -->
@@ -704,10 +711,7 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER ===== -->
-  <div class="footer">
-    ✨ Ready to decompose your top task? Continue to Segment 4 →
-  </div>
+
 
   <script>
     let tasks = [];
